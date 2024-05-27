@@ -1,8 +1,6 @@
-// calculateAge.js
-
-export function useCalculateAge(dateOfBirth) {
+export function calculateAge(dateOfBirth) {
   const birthDate = new Date(dateOfBirth);
-  if (isNaN(birthDate)) return 'Invalid Date';
+  if (isNaN(birthDate)) return false;
 
   const today = new Date();
   let age = today.getFullYear() - birthDate.getFullYear();
@@ -13,4 +11,9 @@ export function useCalculateAge(dateOfBirth) {
   }
 
   return age;
+}
+
+export function birthdayToAgeString(dateOfBirth) {
+  const age = calculateAge(dateOfBirth);
+  return typeof age === 'number' ? age + ' y.o.' : '?' + ' y.o.';
 }
