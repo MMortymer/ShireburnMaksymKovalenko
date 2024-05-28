@@ -2,7 +2,7 @@
 import { ref, onMounted, computed } from 'vue'
 import { useRoute } from 'vue-router'
 import employeeData from '../assets/shireburn-test-data.json'
-import { birthdayToAgeString } from '@/composables/dateUtils.js'
+import { calculateAge, birthdayToAgeString } from '@/composables/dateUtils.js'
 
 const route = useRoute()
 const employee = ref(null)
@@ -60,11 +60,12 @@ const terminationStatus = computed(() => {
     <div class="flex flex-col gap-3">
       <p><span class="font-semibold">Occupation:</span> {{ employee.Occupation }}</p>
       <p>
-        <span class="font-semibold">Date of Birth:</span>
-        <span v-if="typeof employee.DateOfBirth === number">{{ employee.DateOfBirth }}</span>
+        <span class="font-semibold">Date of Birth: </span>
+        <span v-if="typeof calculateAge(employee.DateOfBirth) === 'number'">
+          {{ employee.DateOfBirth }}
+        </span>
         ({{ birthdayToAgeString(employee.DateOfBirth) }})
       </p>
-
       <p><span class="font-semibold">Gender:</span> {{ employee.Gender }}</p>
 
       <div class="flex flex-col gap-1">
