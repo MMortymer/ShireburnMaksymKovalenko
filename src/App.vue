@@ -3,14 +3,9 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <!-- <header>
-    <div class="wrapper">
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header> -->
-
-  <RouterView />
+  <RouterView v-slot="{ Component }">
+    <Transition :duration="200" mode="out-in">
+      <component :is="Component" />
+    </Transition>
+  </RouterView>
 </template>

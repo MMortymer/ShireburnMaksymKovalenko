@@ -53,7 +53,7 @@ const terminationStatus = computed(() => {
 <template>
   <div
     v-if="employee"
-    class="self-center flex flex-col justify-center w-64 sm:w-96 gap-5 p-5 border rounded-xl"
+    class="self-center flex flex-col justify-center w-64 sm:w-96 gap-5 mt-14 p-5 border rounded-xl"
   >
     <h1 class="text-3xl">{{ employee.FirstName }} {{ employee.LastName }}</h1>
 

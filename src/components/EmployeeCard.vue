@@ -9,7 +9,7 @@ defineProps({
 <template>
   <RouterLink
     :to="{ name: 'employeeDetails', params: { id: employee.Id } }"
-    class="border rounded-xl px-5 py-2"
+    class="border rounded-xl px-5 py-2 hover:scale-105 hover:border-cyan-500 transition-all"
   >
     <div class="flex items-center gap-4">
       <h3 class="flex text-xl text-black">{{ employee.FirstName }} {{ employee.LastName }}</h3>
